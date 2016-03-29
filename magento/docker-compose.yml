@@ -1,0 +1,22 @@
+version: '2'
+services:
+  magento:
+    image: paimpozhil/magento-docker    
+    tty: true
+    ports:
+      - "8070:80"
+    links:
+      - memcached:cache
+    external_links:    
+      - mariadb:db
+  mariadb:
+    image: paintedfox/mariadb
+    tty: true
+    environment:
+      - USER=user
+      - PASS=password
+  memcached: 
+    image: sylvainlasnier/memcached
+    ports:
+      - "11211"    
+    

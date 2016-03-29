@@ -1,0 +1,6 @@
+version: '2'
+services:
+  some-drupal:
+    image: insready/drupal-commerce    
+    ports:
+    - "8090:80"
